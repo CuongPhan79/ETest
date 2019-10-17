@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 //Định nghĩa một schema
 var Schema = mongoose.Schema;
 
-var QuizzSchema = new Schema({
+var Quizz = new Schema({
     code: {
         type:String ,
         require:true,
@@ -27,5 +27,7 @@ var QuizzSchema = new Schema({
         type: JSON,
         default: [{"A":"", "B":"", "C":"", "D":""}]
     }
-});
-module.exports=mongoose.model('quizz',QuizzSchema);
+}, {
+    collection: 'quizz'
+ });
+module.exports=mongoose.model('Quizz',Quizz);

@@ -7,9 +7,10 @@ var app=express();
 var bodyParser=require('body-parser');
 var morgan = require('morgan');
 var mongoose=require('mongoose');
-var User= require('./app/models/user');
-var port= process.env.PORT || 8080;
+var User= require('./api/models/user');
 var jwt= require('jsonwebtoken');
+var dbConfig = require('./database/db');
+var port= process.env.PORT || 8080;
 
 //super secret for creating tokens, student can change
 //var superSecret= 'ilovescotchscotchyscotchscotch';
@@ -31,10 +32,16 @@ app.use(function(req,res,next){
 app.use(morgan('dev'));
 
 mongoose.Promise=global.Promise;
-mongoose.connect('mongodb://localhost:27017/myDatabase', {useNewUrlParser: true});
-mongoose.set('useCreateIndex', true);
-
-
+mongoose.connect(dbConfig.db, {
+   useNewUrlParser: true
+}).then(() => {
+      console.log('Database sucessfully connected')
+   },
+   error => {
+      console.log('Database could not connected: ' + error)
+   }
+)
+const quizzRoutes = require('./config/quizz.routes.js');
 
 
 app.get('/',function(req,res){
@@ -219,8 +226,7 @@ apiRouter.get('/me', function(req,res){
 
 
 app.use('/api',apiRouter);
-
-
+app.use('/quizz', quizzRoutes);
 
 app.listen(port);
 console.log('Dang dung Port:' +port);
