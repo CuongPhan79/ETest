@@ -13,7 +13,6 @@ var Quizz = new Schema({
     level: {
         type:Number ,
         require:true,
-        isIn: [1, 2, 3, 4, 5],
         default: 1
     },
     content: {

@@ -60,7 +60,6 @@ apiRouter.post('/authenticate', function(req,res){
    }).select('name username password').exec(function(err,user){
       if(err) throw err;
 
-
       //no user with that username was found
       if(!user){
          res.json({
@@ -230,3 +229,6 @@ app.use('/quizz', quizzRoutes);
 
 app.listen(port);
 console.log('Dang dung Port:' +port);
+
+
+//Bao cao lan 1 ket thuc!!!!f
