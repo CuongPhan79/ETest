@@ -1,10 +1,10 @@
 var mongoose =require('mongoose');
-// var Schema=mongoose.Schema;
-// var bcrypt=require('bcrypt-nodejs');
+var Schema=mongoose.Schema;
+var bcrypt=require('bcrypt-nodejs');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
-var User=new Schema({
+var User = new Schema({
     name:String,
     username:{type:String ,require:true,index:{unique:true}},
     password:{type:String,require:true,select:false},
