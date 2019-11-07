@@ -10,8 +10,9 @@ var mongoose=require('mongoose');
 var User= require('./api/models/user');
 var jwt= require('jsonwebtoken');
 var dbConfig = require('./database/db');
-var port= process.env.PORT || 8080;
-
+var port= process.env.PORT || 4000;
+var cors = require('cors');
+var path = require('path');
 //super secret for creating tokens, student can change
 //var superSecret= 'ilovescotchscotchyscotchscotch';
 var superSecret= 'toihocmean';
@@ -19,7 +20,7 @@ var superSecret= 'toihocmean';
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
+app.use(cors());
 
 app.use(function(req,res,next){
     res.setHeader('Access-Controll-Allow-Origin', '*');

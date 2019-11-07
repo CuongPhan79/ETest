@@ -12,7 +12,6 @@ var Quizz = new Schema({
         }},
     level: {
         type:Number ,
-        require:true,
         default: 1
     },
     content: {

@@ -12,8 +12,9 @@ quizzRoutes.route('/').get((req, res) => {
     })
 });
 quizzRoutes.route('/create').post((req, res) => {
+  console.log(req.body);
   Quizz.create(req.body, (error, data) => {
-    console.log(req.body);
+  
     if (error) {
       console.log("error");
       return next(error)
