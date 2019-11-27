@@ -1,0 +1,75 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Majestic Admin Pro</title>
+	<!-- plugins:css -->
+	<!-- <link rel="stylesheet" href="../vendors/mdi/css/materialdesignicons.min.css"> -->
+	<link rel="stylesheet" href="../../public/vendors/mdi/css/materialdesignicons.min.css">
+	<!-- <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css"> -->
+	<link rel="stylesheet" href="../../public//vendors/css/vendor.bundle.base.css">
+	<!-- endinject -->
+	<!-- plugin css for this page -->
+	<!-- End plugin css for this page -->
+	<!-- inject:css -->
+	<link rel="stylesheet" href="../../public/css/vertical-layout-light/style.css">
+	<!-- endinject -->
+	<link rel="shortcut icon" href="../../public/images/favicon.png" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="page-header text-right">
+
+			<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+		</div>
+		<div class="page-header text-center">
+			<h1 class="display-3"><span class="fa fa-anchor"></span> Profile Page</h1>
+		</div>
+
+
+
+		<div class="row">
+
+			<!-- LOCAL INFORMATION -->
+				<div class="card">
+						<div class="card-header" role="tab" id="heading-8">
+						  <h5 class="mb-0">
+							<a class="collapsed" data-toggle="collapse" href="#collapse-8" aria-expanded="true" aria-controls="collapse-8">
+							  I forgot my account password. What should I do?
+							</a>
+						  </h5>
+						</div>
+						<div id="collapse-8" class="collapse show" role="tabpanel" aria-labelledby="heading-8" data-parent="#accordion-3">
+						  <div class="card-body">
+							<ol class="pl-3">
+									<strong>id</strong>: <%= user.local._id %></br>
+									<strong>name</strong>: <%=user.local.name%></br>
+									<strong>telephone number</strong>: <%= user.local.telephoneNumber %></br>
+									<strong>email</strong>: <%= user.local.email %></br>
+									<strong>password</strong>: <%= user.local.password %></br>
+									<strong>role</strong>: <%=user.local.role %>
+							</ol>
+						  </div>
+						</div>
+					  </div>
+
+		</div>
+
+	</div>
+	<script src="../../public/vendors/js/vendor.bundle.base.js"></script>
+	<!-- endinject -->
+	<!-- Plugin js for this page-->
+	<!-- End plugin js for this page-->
+	<!-- inject:js -->
+	<script src="../../public/js/hoverable-collapse.js"></script>\
+	<script src="../../public/js/template.js"></script>
+	<script src="../../public/js/settings.js"></script>
+	<script src="../../public/js/todolist.js"></script>
+</body>
+
+</html>
