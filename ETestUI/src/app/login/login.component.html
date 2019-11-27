@@ -1,0 +1,57 @@
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{your-app-id}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{api-version}'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<div style="margin-top: 50px; margin-left: 30%;" class="container">
+
+<div class="row">
+
+  <div class="col-md-6">
+
+    <h1 style="text-align: center;" class="form-signin-heading">Đăng nhập</h1>
+    
+
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+          <label class="col-md-4">Email</label>
+          <input type="email" class="form-control" 
+            formControlName="email" 
+            #email />
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Mật khẩu</label>
+          <input type="password" class="form-control" 
+            formControlName="password" 
+            #password />
+        </div>
+   
+      <button (click) = "login(email.value, password.value)" mat-raised-button style="margin-top: 10px;color: white;background-color: #0C910C;"  type="submit" class="btn btn-default"[disabled]="angForm.pristine || angForm.invalid" >Đăng nhập</button>
+      <br>
+      <button (click) = "loginfb()" mat-raised-button style="margin-top: 10px;color: white;background-color: rgb(34, 86, 184);"  type="submit" class="btn btn-default">Facebook</button>
+      <button (click) = "logingg()" mat-raised-button style="margin-top: 10px;color: white;background-color: rgba(248, 6, 6, 0.973);"  type="submit" class="btn btn-default" >Google</button>
+      
+    </form>
+    <p style="margin-top:30px ;" class="lead">Chưa có tài khoản? Đăng ký <a style="color: #0C910C" routerLink="/register">register</a> instead.</p>
+
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,196 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Mã câu hỏi</label>
+          <input type="text" class="form-control" 
+            formControlName="code"
+            #code
+            [(ngModel)] = "quizz.code" />
+        </div>
+        <div *ngIf="angForm.controls['code'].invalid && (angForm.controls['code'].dirty || angForm.controls['code'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['code'].errors.required">
+            Mã câu hỏi là trường bắt buộc.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Nội dung</label>
+          <textarea class="form-control" rows = 7 cols = "5"
+            formControlName="content" 
+            #content
+            [(ngModel)] = "quizz.content">
+            </textarea>
+        </div>
+        <div *ngIf="angForm.controls['content'].invalid && (angForm.controls['content'].dirty || angForm.controls['content'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['content'].errors.required">
+            Nội dung câu hỏi là trường bắt buộc
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">Câu trả lời A</label>
+            <input type="text" class="form-control" 
+              formControlName="answersA" 
+              #answersA 
+              [(ngModel)] = "quizz.listAnser[0].A"/>
+              <div *ngIf="angForm.controls['answersA'].invalid && (angForm.controls['answersA'].dirty || angForm.controls['answersA'].touched)" class="alert alert-danger">
+                  <div *ngIf="angForm.controls['answersA'].errors.required">
+                    Câu trả lời A là trường bắt buộc
+                  </div>
+              </div>
+        </div>
+       
+        <div class="form-group">
+            <label class="col-md-4">Câu trả lời B</label>
+            <input type="text" class="form-control" 
+              formControlName="answersB" 
+              #answersB 
+              [(ngModel)] = "quizz.listAnser[0].B"/>
+              <div *ngIf="angForm.controls['answersB'].invalid && (angForm.controls['answersB'].dirty || angForm.controls['answersB'].touched)" class="alert alert-danger">
+                  <div *ngIf="angForm.controls['answersB'].errors.required">
+                    Câu trả lời B là trường bắt buộc
+                  </div>
+              </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">Câu trả lời C</label>
+            <input type="text" class="form-control" 
+              formControlName="answersC" 
+              #answersC 
+              [(ngModel)] = "quizz.listAnser[0].C"/>
+            <div *ngIf="angForm.controls['answersC'].invalid && (angForm.controls['answersC'].dirty || angForm.controls['answersC'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['answersC'].errors.required">
+                  Câu trả lời C là trường bắt buộc
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">Câu trả lời D</label>
+            <input type="text" class="form-control" 
+              formControlName="answersD" 
+              #answersD 
+              [(ngModel)] = "quizz.listAnser[0].D"/>
+            <div *ngIf="angForm.controls['answersD'].invalid && (angForm.controls['answersD'].dirty || angForm.controls['answersD'].touched)" class="alert alert-danger">
+              <div *ngIf="angForm.controls['answersD'].errors.required">
+                Câu trả lời D là trường bắt buộc
+              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Cấp độ</label>
+            <div>
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input id="level1" type="radio" class="form-control" name="level" checked formControlName="level" 
+                      #level1 
+                      value=1
+                        >
+                      <i class="input-helper"></i>
+                      1
+                    </label>
+                  </div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input id="level2" type="radio" class="form-control" name="level" formControlName="level" 
+                      #level2
+                        value=2>
+                      <i class="input-helper"></i>
+                      2
+                    </label>
+                  </div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input id="level3" type="radio" class="form-control" name="level" formControlName="level" 
+                      #level3
+                        value=3>
+                      <i class="input-helper"></i>
+                      3
+                    </label>
+                  </div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input id="level4" type="radio" class="form-control" name="level" formControlName="level" 
+                      #level4
+                        value=4>
+                      <i class="input-helper"></i>
+                      4
+                    </label>
+                  </div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input id="level5"  type="radio" class="form-control" name="level" formControlName="level" value="5"
+                      #level5>
+                      <i class="input-helper"></i>
+                      5
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        <div class="form-group">
+            <label>Đáp án</label>
+            <div>
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input id="statusA"  type="radio" class="form-check-input" name="status" checked
+                        value=A>
+                      <i class="input-helper"></i>A
+                    </label>
+                  </div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input id="statusB" type="radio" class="form-check-input" name="status"
+                        value=B>
+                      <i class="input-helper"></i>
+                      B
+                    </label>
+                  </div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input id="statusC" type="radio" class="form-check-input" name="status"
+                        value=C>
+                      <i class="input-helper"></i>
+                      C
+                    </label>
+                  </div>
+                </li>
+                <li class="list-inline-item">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input id="statusC" type="radio" class="form-check-input" name="status"
+                        value=D>
+                      <i class="input-helper"></i>
+                      D
+                    </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="form-group">
+              <button (click) = "updateQuizz(code.value, content.value, level1.value, answersA.value, answersB.value, answersC.value, answersD.value)" type="submit" class="btn btn-primary"
+              [disabled]="angForm.pristine || angForm.invalid" >
+                Cập nhật
+              </button>
+          </div>
+        
+      </form>
+    </div>
+  </div>
