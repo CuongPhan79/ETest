@@ -1,0 +1,8 @@
+<div style="background-color: rgb(197, 15, 30)">
+  <b style="color: white; font-size: 30px;">ETEST</b>
+
+  <span style="text-align: center; margin-left: 900px; font-size: 18px; color: white;"><a style="color: white;" routerLink="/">Trang chủ</a></span>
+  <span style="text-align: center; margin-left: 10px; font-size: 18px; color: white;" *ngIf="!auth.isLoggedIn()"><a style="color: white;" routerLink="/login">Đăng nhập</a></span>
+  <span style="text-align: center; margin-left: 10px; font-size: 18px; color: white" *ngIf="auth.isLoggedIn()"><a (click)="auth.logout()" routerLink="" style="color: white">Đăng xuất</a></span>
+
+</div>
