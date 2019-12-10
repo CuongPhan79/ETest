@@ -1,32 +1,29 @@
 const express = require('express');
 const quizzRoutes = express.Router();
-let Quizz = require('../models/Quizz');
+let question = require('../models/question');
 
 quizzRoutes.route('/').get((req, res) => {
-    Quizz.find((error, data) => {
+  question.find((error, data) => {
       if (error) {
         return next(error)
       } else {
-        res.json(data)
+        res.json(data);
       }
     })
 });
 quizzRoutes.route('/create').post((req, res) => {
-  let quizz = {}
-  quizz.code = req.body.code;
-  quizz.content = req.body.content;
-  quizz.code = req.body.code;
-  quizz.level = req.body.level;
-  quizz.listAnser =  [ 
-    {
-        "A" : req.body.answersA,
-        "B" : req.body.answersB,
-        "C" : req.body.answersC,
-        "D" : req.body.answersD
-    }
-  ]
-  console.log(quizz);
-  Quizz.create(quizz, (error, data) => {
+  var questionObj = {}
+  questionObj.code = req.body.code
+  questionObj.question = req.body.question;
+  var options = [];
+  options.push(req.body.optionA);
+  options.push(req.body.optionB);
+  options.push(req.body.optionC);
+  options.push(req.body.optionD);
+  questionObj.options = options;
+  questionObj.answer = req.body.answer;
+  console.log(questionObj);
+  question.create(questionObj, (error, data) => {
   
     if (error) {
       console.log("error");
@@ -37,9 +34,9 @@ quizzRoutes.route('/create').post((req, res) => {
   })
 });
 quizzRoutes.route('/read/:id').get((req, res) => {
-  Quizz.findById(req.params.id, (error, data) => {
+  question.findById(req.params.id, (error, data) => {
     console.log(data);
-    console.log(data.listAnser[0].A)
+    console.log(data.options[0])
     if (error) {
      
       return next(error)
@@ -49,22 +46,18 @@ quizzRoutes.route('/read/:id').get((req, res) => {
   })
 });
 quizzRoutes.route('/update/:id').put((req, res, next) => {
-  let quizz = {}
-  quizz.code = req.body.code;
-  quizz.content = req.body.content;
-  quizz.code = req.body.code;
-  quizz.level = req.body.level;
-  quizz.listAnser =  [ 
-    {
-        "A" : req.body.answersA,
-        "B" : req.body.answersB,
-        "C" : req.body.answersC,
-        "D" : req.body.answersD
-    }
-  ]
-  console.log(quizz);
-  Quizz.findByIdAndUpdate(req.params.id, {
-    $set: quizz
+  var questionObj = {}
+  questionObj.code = req.body.code
+  questionObj.question = req.body.question;
+  var options = [];
+  options.push(req.body.optionA);
+  options.push(req.body.optionB);
+  options.push(req.body.optionC);
+  options.push(req.body.optionD);
+  questionObj.options = options;
+  questionObj.answer = req.body.answer;
+  question.findByIdAndUpdate(req.params.id, {
+    $set: questionObj
   }, (error, data) => {
     if (error) {
       return next(error);
@@ -77,7 +70,7 @@ quizzRoutes.route('/update/:id').put((req, res, next) => {
 });
 quizzRoutes.route('/delete/:id').patch((req, res, next) => {
   console.log(req.params)
-  Quizz.remove({
+  question.remove({
     _id:req.params.id
  }, function(err,data){
     if(err) return res.send(err);
