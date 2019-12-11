@@ -1,18 +1,20 @@
-<table class="table table-hover">
+<div class="container">
+  <table class="table table-hover">
     <thead>
-    <tr>
+      <tr>
         <td><b>Mã câu hỏi</b></td>
         <td><b>Nội dung câu hỏi</b></td>
-        <td colspan="2"><i>Hành động</i></td>
-    </tr>
+        <td colspan="2"><b><i>Hành động</i></b></td>
+      </tr>
     </thead>
-    
+
     <tbody>
-        <tr *ngFor="let quizz of quizzs">
-            <td>{{ quizz.code }}</td>
-            <td>{{ quizz.question }}</td>
-            <td><a [routerLink]="['/edit', quizz._id]" class="btn btn-primary">Sửa</a></td>
-            <td><a (click) = "deleteQuizz(quizz._id)" class="btn btn-danger"  style="color: white;">Xóa</a>
-        </tr>
+      <tr *ngFor="let quizz of quizzs">
+        <td>{{ quizz.code }}</td>
+        <td>{{ quizz.question }}</td>
+        <td><a [routerLink]="['/edit', quizz._id]" class="btn btn-primary">Sửa</a></td>
+        <td><a (click)="deleteQuizz(quizz._id)" class="btn btn-danger" style="color: white;">Xóa</a>
+      </tr>
     </tbody>
-</table>
+  </table>
+</div>
