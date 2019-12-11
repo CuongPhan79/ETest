@@ -1,94 +1,97 @@
-<div class="card">
-  <div class="card-body">
-    <form [formGroup]="angForm" novalidate>
-      <div class="form-group">
-        <label class="col-md-4">Mã câu hỏi</label>
-        <input type="text" class="form-control" 
-          formControlName="code" 
-          #code />
-      </div>
-      <div *ngIf="angForm.controls['code'].invalid && (angForm.controls['code'].dirty || angForm.controls['code'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['code'].errors.required">
-          Mã câu hỏi là trường bắt buộc.
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Mã câu hỏi</label>
+          <input type="text" class="form-control" formControlName="code" #code />
         </div>
-      </div>
-      <div class="form-group">
-        <label class="col-md-4">Nội dung</label>
-        <textarea class="form-control" rows = 7 cols = "5"
-        formControlName="question" 
-        #question></textarea>
-      </div>
-      <div *ngIf="angForm.controls['question'].invalid && (angForm.controls['question'].dirty || angForm.controls['question'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['question'].errors.required">
-          Nội dung câu hỏi là trường bắt buộc
-        </div>
-      </div>
-      <div class="form-group">
-          <label class="col-md-4">Câu trả lời A</label>
-          <input type="text" class="form-control" 
-            formControlName="optionA" 
-            #optionA />
-            <div *ngIf="angForm.controls['optionA'].invalid && (angForm.controls['optionA'].dirty || angForm.controls['optionA'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['optionA'].errors.required">
-                  Câu trả lời A là trường bắt buộc
-                </div>
-            </div>
-      </div>
-     
-      <div class="form-group">
-          <label class="col-md-4">Câu trả lời B</label>
-          <input type="text" class="form-control" 
-            formControlName="optionB" 
-            #optionB />
-            <div *ngIf="angForm.controls['optionB'].invalid && (angForm.controls['optionB'].dirty || angForm.controls['optionB'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['optionB'].errors.required">
-                  Câu trả lời B là trường bắt buộc
-                </div>
-            </div>
-      </div>
-      <div class="form-group">
-          <label class="col-md-4">Câu trả lời C</label>
-          <input type="text" class="form-control" 
-            formControlName="optionC" 
-            #optionC />
-          <div *ngIf="angForm.controls['optionC'].invalid && (angForm.controls['optionC'].dirty || angForm.controls['optionC'].touched)" class="alert alert-danger">
-              <div *ngIf="angForm.controls['optionC'].errors.required">
-                Câu trả lời C là trường bắt buộc
-              </div>
+        <div
+          *ngIf="angForm.controls['code'].invalid && (angForm.controls['code'].dirty || angForm.controls['code'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['code'].errors.required">
+            Mã câu hỏi là trường bắt buộc.
           </div>
-      </div>
-      <div class="form-group">
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Nội dung</label>
+          <textarea class="form-control" rows=7 cols="5" formControlName="question" #question></textarea>
+        </div>
+        <div
+          *ngIf="angForm.controls['question'].invalid && (angForm.controls['question'].dirty || angForm.controls['question'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['question'].errors.required">
+            Nội dung câu hỏi là trường bắt buộc
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Câu trả lời A</label>
+          <input type="text" class="form-control" formControlName="optionA" #optionA />
+          <div
+            *ngIf="angForm.controls['optionA'].invalid && (angForm.controls['optionA'].dirty || angForm.controls['optionA'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['optionA'].errors.required">
+              Câu trả lời A là trường bắt buộc
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4">Câu trả lời B</label>
+          <input type="text" class="form-control" formControlName="optionB" #optionB />
+          <div
+            *ngIf="angForm.controls['optionB'].invalid && (angForm.controls['optionB'].dirty || angForm.controls['optionB'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['optionB'].errors.required">
+              Câu trả lời B là trường bắt buộc
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Câu trả lời C</label>
+          <input type="text" class="form-control" formControlName="optionC" #optionC />
+          <div
+            *ngIf="angForm.controls['optionC'].invalid && (angForm.controls['optionC'].dirty || angForm.controls['optionC'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="angForm.controls['optionC'].errors.required">
+              Câu trả lời C là trường bắt buộc
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
           <label class="col-md-4">Câu trả lời D</label>
-          <input type="text" class="form-control" 
-            formControlName="optionD" 
-            #optionD />
-          <div *ngIf="angForm.controls['optionD'].invalid && (angForm.controls['optionD'].dirty || angForm.controls['optionD'].touched)" class="alert alert-danger">
+          <input type="text" class="form-control" formControlName="optionD" #optionD />
+          <div
+            *ngIf="angForm.controls['optionD'].invalid && (angForm.controls['optionD'].dirty || angForm.controls['optionD'].touched)"
+            class="alert alert-danger">
             <div *ngIf="angForm.controls['optionD'].errors.required">
               Câu trả lời D là trường bắt buộc
             </div>
           </div>
-      </div>
-      <div class="form-group">
+        </div>
+        <div class="form-group">
           <label>Đáp án</label>
           <div>
-            <input type="text" class="form-control" 
-            formControlName="answer" 
-            #answer />
-          <div *ngIf="angForm.controls['answer'].invalid && (angForm.controls['answer'].dirty || angForm.controls['answer'].touched)" class="alert alert-danger">
-            <div *ngIf="angForm.controls['answer'].errors.required">
-              Đáp án là trường bắt buộc
+            <input type="text" class="form-control" formControlName="answer" #answer />
+            <div
+              *ngIf="angForm.controls['answer'].invalid && (angForm.controls['answer'].dirty || angForm.controls['answer'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="angForm.controls['answer'].errors.required">
+                Đáp án là trường bắt buộc
+              </div>
             </div>
           </div>
-          </div>
         </div>
-        
+
         <div class="form-group">
-            <button (click) = "addQuizz(code.value, question.value, optionA.value, optionB.value, optionC.value, optionD.value, answer.value)" type="submit" class="btn btn-primary"
-            [disabled]="angForm.pristine || angForm.invalid" >
-              Tạo câu hỏi
-            </button>
+          <button
+            (click)="addQuizz(code.value, question.value, optionA.value, optionB.value, optionC.value, optionD.value, answer.value)"
+            type="submit" class="btn btn-primary" [disabled]="angForm.pristine || angForm.invalid">
+            Tạo câu hỏi
+          </button>
         </div>
-      
-    </form>
+
+      </form>
+    </div>
   </div>
 </div>

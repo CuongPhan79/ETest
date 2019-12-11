@@ -18869,7 +18869,7 @@ a.text-dark:hover, a.text-dark:focus {
   .table, .jsgrid .jsgrid-table {
     border-collapse: collapse !important;
   }
-  
+
   .table td,
   .jsgrid .jsgrid-table td, .table th, .jsgrid .jsgrid-table th {
     background-color: #ffffff !important;
@@ -19134,7 +19134,7 @@ a:focus,
 input:focus {
   border-color: transparent;
   outline: none;
-} 
+}
 
 .bg-twitter {
   background: #2caae1;
@@ -27858,7 +27858,7 @@ div.tagsinput span.tag a {
 /* === Landing screens === */
 /* Auth */
 .auth .login-half-bg {
-  background: url("../../images/auth/university.jpg");
+  /* background: url("../../images/auth/university.jpg"); */
   background-size: cover;
 }
 

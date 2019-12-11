@@ -65,7 +65,7 @@ export class AuthenticationService {
 
   private request(method: 'post'|'get', type: 'login'|'register'|'profilelocal'|'loginfb', user?: TokenPayload): Observable<any> {
     let base;
-    
+
     if (method === 'post') {
       base = this.http.post(`${this.uri}/${type}`, user);
     } else {
@@ -110,6 +110,6 @@ export class AuthenticationService {
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem('mean-token');
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/login');
   }
 }

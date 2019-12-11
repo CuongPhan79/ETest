@@ -6,22 +6,25 @@
         <div class="form-group">
           <label>Tên</label>
           <input type="text" class="form-control" name="name" placeholder="Nhập tên"
-          formControlName="name" 
+          formControlName="name"
           #name />
         </div>
         <div class="form-group">
           <label>Email</label>
           <input type="email" class="form-control" name="email" placeholder="Nhập email"
-          formControlName="email" 
+          formControlName="email"
           #email />
         </div>
         <div class="form-group">
           <label>Mật khẩu</label>
           <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu"
-          formControlName="password" 
+          formControlName="password"
           #password />
         </div>
+        <div class="text-center">
+        <button routerLink="/login" mat-raised-button style="margin-top: 10px;color: white;background-color: #FF0000"  type="submit" class="btn btn-default">Hủy</button>&nbsp;&nbsp;&nbsp;
         <button (click) = "register(name.value, email.value, password.value)" mat-raised-button style="margin-top: 10px;color: white;background-color: #0C910C;"  type="submit" class="btn btn-default"[disabled]="angForm.pristine || angForm.invalid" >Đăng ký</button>
+      </div>
       </form>
     </div>
   </div>
